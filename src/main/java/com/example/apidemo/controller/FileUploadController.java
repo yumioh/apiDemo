@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class FileUploadController {
-    @GetMapping("/fileform")
+    @GetMapping("/fileForm")
     public ModelAndView fileForm() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/fileForm");
