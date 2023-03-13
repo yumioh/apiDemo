@@ -9,7 +9,7 @@ public class FileUploadController {
     @GetMapping("/fileform")
     public ModelAndView fileForm() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/view/FileForm");
+        mv.setViewName("/fileForm");
         return mv;
     }
 }
