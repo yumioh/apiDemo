@@ -2,22 +2,24 @@ package com.example.apidemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 @RestController
-public class ApiExpoler {
+public class ApiExplorer {
 
     @GetMapping("/api")
     public static void main(String[] args) throws IOException {
         // 오픈 API의 요청에 규격에 맞는 파라미터 생성
 
         String serviceKey = "6c794f7276696f7639306c4e677652"; //인증키
-        StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088/"+ serviceKey +"/xml/SeoulPublicLibraryInfo/1/5/");
+        StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088/"+ serviceKey +"/xml/SeoulPublicLibraryInfo/1/2/");
 
         //URL 객체 생성
         URL url = new URL(urlBuilder.toString());
@@ -47,6 +49,7 @@ public class ApiExpoler {
 
         rd.close();
         con.disconnect();
+        String xml = rd.toString();
 
         System.out.println(sb.toString());
 
